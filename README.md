@@ -55,10 +55,42 @@
 
 ---
 
-## Начало работы
+### Установка и запуск проекта
+Требования
+Python 3.9+
+Git
+Установленный пакетный менеджер pip
+Установка
+1. Склонируйте репозиторий:
+git clone https://github.com/Altair-prog/coursehw.git
+cd coursehw
 
-Для локального развертывания проекта:
-1. Клонируйте репозиторий.
-2. Установите зависимости.
-3. Настройте интеграцию с Telegram и CORS.
-4. Запустите backend сервер.
+2. Создайте виртуальное окружение:
+python -m venv venv
+
+3. Активируйте виртуальное окружение:
+На Windows:
+venv\Scripts\activate
+
+На macOS/Linux:
+source venv/bin/activate
+
+4. Установите зависимости:
+pip install -r requirements.txt
+
+### Запуск
+1. Примените миграции базы данных:
+python manage.py migrate
+
+2. Запустите сервер разработки:
+python manage.py runserver
+
+3. Перейдите в браузере по адресу:
+http://127.0.0.1:8000
+
+### Дополнительные команды
+1. Для создания суперпользователя:
+python manage.py createsuperuser
+
+2. Для выполнения тестов:
+python manage.py test
