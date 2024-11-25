@@ -94,3 +94,59 @@ python manage.py createsuperuser
 
 2. Для выполнения тестов:
 python manage.py test
+
+### Работа с Docker
+Требования
+Docker
+Docker Compose
+
+1. Склонируйте репозиторий:
+git clone https://github.com/Altair-prog/coursehw.git
+cd coursehw
+
+Запуск без Docker
+1. Настройка виртуального окружения
+Создайте виртуальное окружение:
+python -m venv venv
+
+2. Активируйте виртуальное окружение:
+На Windows:
+venv\Scripts\activate
+
+На macOS/Linux:
+source venv/bin/activate
+
+3. Установите зависимости:
+pip install -r requirements.txt
+
+4. Примените миграции:
+python manage.py migrate
+
+5. Запустите сервер разработки:
+python manage.py runserver
+
+6. Перейдите в браузере по адресу:
+http://127.0.0.1:8000
+
+### Запуск в Docker
+
+1. Убедитесь, что Docker установлен и работает на вашем компьютере.
+
+2. Сборка и запуск контейнеров:
+docker-compose up --build
+
+3. После успешного запуска перейдите в браузере по адресу:
+http://127.0.0.1:8000
+
+4. Для выполнения миграций вручную (если требуется):
+docker-compose exec web python manage.py migrate
+
+5. Для создания суперпользователя:
+docker-compose exec web python manage.py createsuperuser
+
+### Дополнительные команды
+Остановить контейнеры:
+docker-compose down
+
+Просмотреть логи:
+docker-compose logs -f
